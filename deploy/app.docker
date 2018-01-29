@@ -1,0 +1,8 @@
+FROM clockwise/docker-phpunit-alpain:7.1-fpm-deb
+
+COPY ./deploy/php.ini /usr/local/etc/php
+COPY ./deploy/process.conf /usr/local/etc/php-fpm.d
+
+WORKDIR /var/www
+
+CMD ["php-fpm"]
