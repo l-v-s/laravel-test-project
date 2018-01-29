@@ -9,6 +9,9 @@
 
 ## Hi, Vladimir
 
+After first install the project, please, copy .env.example to .env, 
+and configure your environment variables
+
 To run local server, exec the following commands in project root folder:  
 
 `composer install`
