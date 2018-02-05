@@ -22,7 +22,7 @@ services:
             - database
             - cache
         environment:
-            - "DB_PORT=33061"
+            - "DB_PORT=3306"
             - "DB_HOST=database"
             - "REDIS_PORT=6379"
             - "REDIS_HOST=cache"
