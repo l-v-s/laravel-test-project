@@ -12,7 +12,9 @@
 */
 
 //Route::get('/', function () {
-Route::get('/', ['uses' => 'HomeController@index', 'as' => 'Home']);
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
+Route::get('message/{id}/edit', ['uses' => 'HomeController@edit', 'as' => 'message.edit'])->where(['id' => '[0-9]+']);
+
 //    return view('welcome');
     //dd([1,2,3]);
 //});
