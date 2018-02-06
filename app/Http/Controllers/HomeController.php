@@ -19,7 +19,7 @@ class HomeController extends Controller
         //return 'HomeController action index - '.route('Home');
         return view ('welcome');
     }
-
+ддддддддддддд
 
     /**
      * Show the form for creating a new resource.
