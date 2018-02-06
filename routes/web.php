@@ -11,4 +11,16 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+//Route::get('/', function () {
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'Home']);
+//    return view('welcome');
+    //dd([1,2,3]);
+//});
+
+
+//Route::get();//GET
+
+/*Route::post();//POST
+
+Route::delete();//DELETE
+*/
