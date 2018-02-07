@@ -22,8 +22,8 @@ services:
             - database
             - cache
         environment:
-           - "DB_PORT=33061"
-            - "DB_HOST=database"
+            - "DB_PORT=3306"
+            - "DB_HOST=localhost"
             - "REDIS_PORT=6379"
             - "REDIS_HOST=cache"
             - "APP_ENV=develop"
@@ -31,10 +31,10 @@ services:
     database:
         image: mysql:5.7
         environment:
-            - "MYSQL_ROOT_PASSWORD=secret"
+            - "MYSQL_ROOT_PASSWORD="
             - "MYSQL_DATABASE=test"
         ports:
-            - "33061:3306"
+            - "3306:33061"
         volumes:
             - ./mysql:/var/lib/mysql
     cache:
