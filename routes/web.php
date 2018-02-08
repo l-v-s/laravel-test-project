@@ -15,6 +15,9 @@
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 Route::get('message/{id}/edit', ['uses' => 'HomeController@edit', 'as' => 'message.edit'])->where(['id' => '[0-9]+']);
 
+
+Route::get('prom-razdel/', ['uses' => 'HomeController@PromRazdelList', 'as' => 'prom-razdel.PromRazdelList']);
+Route::get('add-prom-razdel/', ['uses' => 'HomeController@AddPromRazdel', 'as' => 'prom-razdel.AddPromRazdel']);
 //    return view('welcome');
     //dd([1,2,3]);
 //});
