@@ -41,3 +41,14 @@ services:
         image: redis:3.0
         ports:
             - "63791:6379"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+          - "8082:80"
+        links:
+          - database
+        environment:
+          - "MYSQL_ROOT_PASSWORD=secret"
+          - "PMA_PORT=3306"
+          - "PMA_HOST=database"
