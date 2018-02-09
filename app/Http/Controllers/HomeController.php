@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use DummyFullModelClass;
 use App\lain;
 use Illuminate\Http\Request;
@@ -17,9 +18,9 @@ class HomeController extends Controller
     public function index(lain $lain)
     {
         //return 'HomeController action index - '.route('Home');
-        return view ('welcome');
+//        return view ('home');
+        return User::all();
     }
-ддддддддддддд
 
     /**
      * Show the form for creating a new resource.

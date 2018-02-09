@@ -10,8 +10,9 @@ services:
             - "8081:80"
         links:
             - app
-        hostname: vmmsmp3
-        domainname: vmmsmp3.local
+        hostname: lvsproject
+        domainname: lvsproject.local
+
     app:
         build:
             context: ./
@@ -21,22 +22,20 @@ services:
         links:
             - database
             - cache
-        environment:
-            - "DB_PORT=3306"
-            - "DB_HOST=localhost"
-            - "REDIS_PORT=6379"
-            - "REDIS_HOST=cache"
-            - "APP_ENV=develop"
-            - "APP_DEBUG=true"
+
     database:
         image: mysql:5.7
         environment:
-            - "MYSQL_ROOT_PASSWORD=secret"
-            - "MYSQL_DATABASE=test"
+            - "MYSQL_ROOT_PASSWORD=${DB_PASSWORD}"
+            - "MYSQL_USER=${DB_USERNAME}"
+            - "MYSQL_PASSWORD=${DB_PASSWORD}"
+            - "MYSQL_DATABASE=${DB_DATABASE}"
         ports:
-            - "33061:3306"
+            - "${DB_OUTER_PORT}:3306"
         volumes:
             - ./mysql:/var/lib/mysql
+        env_file:
+            - .env
     cache:
         image: redis:3.0
         ports:
@@ -49,8 +48,10 @@ services:
         links:
           - database
         environment:
-          - "MYSQL_ROOT_PASSWORD=secret"
+          - "MYSQL_ROOT_PASSWORD=${DB_PASSWORD}"
           - "PMA_PORT=3306"
           - "PMA_HOST=database"
-          - "PMA_USER=root"
-          - "PMA_PASSWORD=secret"
+          - "PMA_USER=${DB_USERNAME}"
+          - "PMA_PASSWORD=${DB_PASSWORD}"
+        env_file:
+          - .env
