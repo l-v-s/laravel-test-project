@@ -16,7 +16,6 @@
        {{ isset ($pagetitle)? $pagetitle : 'гостев книга'}}
     </h1><hr/>
 
-
 <?/*    @for ($i = 0; $i < 5; $i++)
         <p>№ {{$i}}</p>
     @endfor
