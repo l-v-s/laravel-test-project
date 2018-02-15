@@ -13,6 +13,9 @@
 
 //Route::get('/', function () {
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
+Route::post('message/add/{post}', ['uses' => 'HomeController@AddMessage', 'as' => 'messages.add']);
+
+
 Route::get('message/{id}/edit', ['uses' => 'HomeController@edit', 'as' => 'message.edit'])->where(['id' => '[0-9]+']);
 
 
