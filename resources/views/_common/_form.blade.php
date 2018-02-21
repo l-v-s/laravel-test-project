@@ -2,7 +2,7 @@
 
     <did class="form-group">
         <label for="name">Имя: *</label>
-        <input type="text" value="" class="form-control" placeholder="Имя" name="name" id="name">
+        <input type="text" value="" class=_form.blade.php"form-control" placeholder="Имя" name="name" id="name">
     </did>
 
     <div class="form-group">

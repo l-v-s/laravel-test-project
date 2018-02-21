@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> {{$title}} </title>
+    <title> {{ isset ($title)? $title : 'гостевая книга'}} </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -25,7 +25,9 @@
             <p>{{ $user['name'] }}</p>
         @endforeach
     @endif
-*/?>
+*/
+$test = 'тестовая переменная';
+?>
 
     @yield('content')
 
