@@ -66,7 +66,7 @@ class HomeController extends Controller
         //переменной в web.php
         //называется - неявное привязывание модели
 
-        dd ('изменения2');
+//        dd ('изменения2');
         $data = ['pagetitle' => 'Блог - статья'        ];
         return view('pages.posts.show', compact(['post','data']));
     }
@@ -115,6 +115,13 @@ class HomeController extends Controller
         return view('pages.posts.edit', compact(['post','data']));
     }
 
+    public function destroy (Post $post){
+
+        $post->delete();
+
+        return redirect("/");
+    }
+
     public function update (Post $post){
 
         //dd(request()->all());
@@ -131,12 +138,7 @@ class HomeController extends Controller
         return redirect("/");
     }
 
-    public function destroy (Post $post){
 
-        $post->delete();
-
-        return redirect("/");
-    }
 
     /*
     public function edit($id)

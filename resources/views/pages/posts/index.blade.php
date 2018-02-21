@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\DB;
                 <h2>{{ $post->title }}</h2>
                 <p>{{ $post->intro }}</p>
                 <p class="lead"></p>
-                <p><a href="/posts/{{ $post->alias }}" class="btn btn-secondary">Читать далее</a></p>
-                <p><a href="/posts/{{ $post->alias }}/edit" class="btn btn-primary">Редактировать</a></p>
-                <form action="/posts/{{ $post->alias }}" method="post">
+                <p><a href="/posts/{{ $post->id }}" class="btn btn-secondary">Читать далее</a></p>
+                <p><a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Редактировать</a></p>
+                <form action="/post/{{ $post->id }}" method="post">
                     {{csrf_field()}}
                     {!! method_field('delete') !!}
                     <button class="btn btn-danger" type="submit">Удалить</button>

@@ -24,9 +24,9 @@ Route::post('/post', 'HomeController@store');
 
 Route::get('/posts/{post}/edit', 'HomeController@edit');
 
-Route::patch('/posts/{post}', 'HomeController@update');
+Route::patch('/post/{post}', 'HomeController@update');
 
-Route::delete('/posts/{post}', 'HomeController@destroy');
+Route::delete('/post/{post}', 'HomeController@destroy');
 
 /*
  * GET /

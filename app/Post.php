@@ -15,8 +15,9 @@ class Post extends Model
     //поля, которые нельзя добавлять в таблицу
     //protected $guarded = ['title','alias','intro','body'];
 
-    public function getRouteKeyName()
+  /*  public function getRouteKeyName()
     {
         return 'alias'; //автоматический поиск будет не по id, а по alias
     }
+  */
 }

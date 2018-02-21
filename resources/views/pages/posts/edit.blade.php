@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('_common.blog_form')
+<br><br>
     <form action="/posts/{{ $post->id }}" method="post">
         {{csrf_field()}}
         {!! method_field('patch') !!}

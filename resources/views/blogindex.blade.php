@@ -8,7 +8,7 @@
     <title> {{ isset($data)? !empty($data['title'])?$data['title']:'title нет' : 'не передается data' }} </title>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+lmTKXkS+c9d34U9obDdGOZT7zqFicJDkhckYYsW7oenXR37T2OEV4uqfUO45M87" crossorigin="anonymous">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" >
 </head>
 <body>
 
