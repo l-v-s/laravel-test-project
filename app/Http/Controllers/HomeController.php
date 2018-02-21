@@ -66,7 +66,7 @@ class HomeController extends Controller
         //переменной в web.php
         //называется - неявное привязывание модели
 
-        //dd ('изменения');
+        dd ('изменения2');
         $data = ['pagetitle' => 'Блог - статья'        ];
         return view('pages.posts.show', compact(['post','data']));
     }

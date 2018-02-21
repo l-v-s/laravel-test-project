@@ -5,7 +5,7 @@
 @include('_common.blog_form')
 
        @include('pages.posts.errors')
-    </form>
+
 
 
 @endsection

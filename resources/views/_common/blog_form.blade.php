@@ -1,4 +1,3 @@
-
 <form action="/post" method="post">
     {{csrf_field()}}
     <div class="form-group">
@@ -24,3 +23,4 @@
     <div class="form-group">
         <button class="btn btn-primary" type="submit">Post</button>
     </div>
+</form>
