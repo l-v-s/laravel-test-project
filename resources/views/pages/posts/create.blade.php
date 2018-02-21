@@ -1,5 +1,6 @@
 @extends('blogindex')
 
+
 @section('content')
 
     @include('_common.blog_form')
