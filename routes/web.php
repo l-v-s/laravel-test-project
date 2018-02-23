@@ -28,6 +28,14 @@ Route::patch('/post/{post}', 'HomeController@update');
 
 Route::delete('/post/{post}', 'HomeController@destroy');
 
+Route::get('/git_dir/v1', function (){
+        return view('git_dir/first_page_v1');
+});
+
+Route::get('/git_dir/v2', function (){
+    return view('git_dir/first_page_v2');
+});
+
 /*
  * GET /
  * GET /posts/{id}
