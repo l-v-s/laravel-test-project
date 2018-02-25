@@ -3,7 +3,7 @@
   ZX  xzx
 
 @section('content')
-
+dd
     @include('_common.blog_form')
 <br><br>
     <form action="/posts/{{ $post->id }}" method="post">
