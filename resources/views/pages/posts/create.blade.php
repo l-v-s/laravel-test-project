@@ -1,5 +1,4 @@
 @extends('blogindex')
-dd
 
 @section('content')
 
