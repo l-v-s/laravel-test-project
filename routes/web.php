@@ -13,6 +13,13 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+Route::get('prom-razdel/', ['uses' => 'PromRazdelController@index', 'as' => 'PromRazdelList']);
+Route::get('prom-razdel/create', ['uses' => 'PromRazdelController@create', 'as' => 'PromRazdelCreate']);
+Route::post('/prom-razdel', ['uses' => 'PromRazdelController@store', 'as' => 'PromRazdelStore']);
+Route::get('/prom-razdel/{razdel}/edit', ['uses' => 'PromRazdelController@edit', 'as' => 'PromRazdelEdit']);
+Route::patch('/prom-razdel/{razdel}', ['uses' => 'PromRazdelController@update', 'as' => 'PromRazdelUpdate']);
+
+
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 Route::get('/posts/create', ['uses' => 'HomeController@create']);
@@ -53,8 +60,6 @@ Route::post('message/add/{post}', ['uses' => 'HomeController@AddMessage', 'as' =
 Route::get('message/{id}/edit', ['uses' => 'HomeController@edit', 'as' => 'message.edit'])->where(['id' => '[0-9]+']);
 
 
-Route::get('prom-razdel/', ['uses' => 'HomeController@PromRazdelList', 'as' => 'prom-razdel.PromRazdelList']);
-Route::get('add-prom-razdel/', ['uses' => 'HomeController@AddPromRazdel', 'as' => 'prom-razdel.AddPromRazdel']);
 //    return view('welcome');
     //dd([1,2,3]);
 //});

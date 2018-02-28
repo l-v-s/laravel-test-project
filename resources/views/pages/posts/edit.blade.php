@@ -1,7 +1,5 @@
 @extends('blogindex')
 
-  ZX  xzx
-
 @section('content')
     @include('_common.blog_form')
 <br><br>
