@@ -12,6 +12,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use Illuminate\Support\Facades\DB;
+use Menu as LavMenu;
+use App\Menu;
 
 class PromRazdelController extends Controller
 {
@@ -42,6 +44,24 @@ class PromRazdelController extends Controller
             'title' => ' Разделы',
             'pagetitle' => ' Разделы'
         ];
+
+
+        $table = [['id' => '0',
+            'title' => 'home',
+            'path' => '/',
+            'parent_id' => ''
+        ],
+            ['id' => '1',
+                'title' => 'about',
+                'path' => '/',
+                'parent_id' => ''
+            ]];
+
+        //  dd($table);
+        //$arrMenu = \App\Menu::all();
+        $arrMenu = $table;
+
+   //     $menu = $this->buildMenu($arrMenu);
 
         return view ('pages.prom-razdel.prom-razdel-list',compact(['data','razdels']));
     }

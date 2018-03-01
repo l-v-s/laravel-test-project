@@ -12,6 +12,7 @@
 */
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Menu as LavMenu;
 
 Route::get('prom-razdel/', ['uses' => 'PromRazdelController@index', 'as' => 'PromRazdelList']);
 Route::get('prom-razdel/create', ['uses' => 'PromRazdelController@create', 'as' => 'PromRazdelCreate']);

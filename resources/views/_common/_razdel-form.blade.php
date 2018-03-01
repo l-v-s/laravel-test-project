@@ -15,7 +15,7 @@
 
                 <?php
 
-                $razdels = DB::table('razdels')->get();
+                $razdels = DB::table('razdels')->get()->where('parent_razdel_id','0');
                 ?>
                 @foreach($razdels as $db_razdel)
                     <option value="{{ $db_razdel->id }}">{{ $db_razdel->name }}</option>

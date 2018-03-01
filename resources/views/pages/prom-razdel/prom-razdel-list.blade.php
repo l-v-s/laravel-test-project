@@ -3,21 +3,25 @@
 
 @section('content')
 
-<li class="row">
-    <?
-        $i = 1;
-    ?>
-    <ol>
-    @foreach($razdels as $razdel)
-        <li>
-            <a href="/prom-razdel/{{ $razdel->id }}/edit" class="card-link">{{ $razdel->name }}</a>
-            {{ !Empty($razdel->opis)? '('.$razdel->opis.')':'' }}
+<?
+use Menu as LavMenu;
 
-        </li>
-    @endforeach
-    </ol>
-</div>
+Menu::make('RazdelsMenu', function ($menu) {
 
+    $razdels = DB::table('razdels')->get();
 
+    foreach($razdels as $razdel){
+        if (!$razdel->parent_razdel_id){
+            $menu->add($razdel->name,['url' => 'prom-razdel/'.$razdel->id.'/edit', 'id' => $razdel->id]);
+        }
+        elseif ($razdel){
+            $menu->add($razdel->name, ['url' => 'prom-razdel/'.$razdel->id.'/edit', 'parent' => $razdel->parent_razdel_id]);
+        }
+    }
+});
+
+?>
+
+{!! Menu::get('RazdelsMenu')->asol() !!}
 
 @stop
