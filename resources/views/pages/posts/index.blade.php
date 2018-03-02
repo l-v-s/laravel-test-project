@@ -3,10 +3,10 @@
 <?php
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
 ?>
 
 @section('content')
+
 
     <div class="row">
         @foreach($posts as $post)

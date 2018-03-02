@@ -16,7 +16,7 @@ use Menu as LavMenu;
 
 Route::get('prom-razdel/', ['uses' => 'PromRazdelController@index', 'as' => 'PromRazdelList']);
 Route::get('prom-razdel/create', ['uses' => 'PromRazdelController@create', 'as' => 'PromRazdelCreate']);
-Route::post('/prom-razdel', ['uses' => 'PromRazdelController@store', 'as' => 'PromRazdelStore']);
+Route::post('prom-razdel/', ['uses' => 'PromRazdelController@store', 'as' => 'PromRazdelStore']);
 Route::get('/prom-razdel/{razdel}/edit', ['uses' => 'PromRazdelController@edit', 'as' => 'PromRazdelEdit']);
 Route::patch('/prom-razdel/{razdel}', ['uses' => 'PromRazdelController@update', 'as' => 'PromRazdelUpdate']);
 

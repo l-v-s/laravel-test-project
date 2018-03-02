@@ -11,11 +11,10 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" >
 </head>
 <body>
-<?
-$action = Route::currentRouteName();
-?>
 
-<div class="bs-component" >
+@include('layouts.top_menu')
+
+{{--<div class="bs-component" >
     <ul class="nav nav-pills">
         <li class="nav-item">
             <{{ ($action == 'PromRazdelList')?'span':'a' }} class="nav-link" href="/prom-razdel/">Список разделов</a>
@@ -25,7 +24,7 @@ $action = Route::currentRouteName();
         </li>
     </ul>
 </div>
-
+--}}
 <div class="container">
 
     <h2 class="text-center">

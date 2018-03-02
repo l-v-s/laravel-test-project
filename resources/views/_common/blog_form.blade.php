@@ -1,5 +1,5 @@
-
-<form action="/post{{ isset($post)? '/'.$post->id:'' }}" method="post">
+{{--@section('blog-form')--}}
+    <form action="/post{{ isset($post)? '/'.$post->id:'' }}" method="post">
     {{csrf_field()}}
 
     {{ isset($post)? method_field('patch'):'' }}
@@ -28,3 +28,5 @@
         <button class="btn btn-primary" type="submit">{{ isset($post)? 'Update':'Post' }}</button>
     </div>
 </form>
+
+{{--@endsection--}}

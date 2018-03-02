@@ -101,7 +101,7 @@ class PromRazdelController extends Controller
 */
         Razdel::create (request()->all());
 
-        redirect ('/prom-razdel/');
+        redirect ('prom-razdel/');
     }
 
     /**

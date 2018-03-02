@@ -12,6 +12,9 @@
 </head>
 <body>
 
+@include('layouts.top_menu')
+
+{{--
 <div class="bs-docs-section clearfix">
     <div class="row">
         <div class="col-lg-12">
@@ -33,8 +36,10 @@
                     </div>
                 </nav>
             </div>
+        </div>
     </div>
 </div>
+--}}
 <div class="container">
 
     <h2 class="text-center">
@@ -56,7 +61,7 @@
     //$test = 'тестовая переменная';
     ?>
 
-    @yield('content')
+@yield('content')
 
 
 </div>

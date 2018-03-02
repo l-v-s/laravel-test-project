@@ -11,17 +11,18 @@
         <div class="form-group">
             <label for="parent_razdel_id">К какому разделу относится:</label>
             <select class="custom-select" name="parent_razdel_id" id="parent_razdel_id">
-                <option selected value="0">Основной раздел</option>
+                <option value="0">Основной раздел</option>
 
                 <?php
 
                 $razdels = DB::table('razdels')->get()->where('parent_razdel_id','0');
                 ?>
                 @foreach($razdels as $db_razdel)
-                    <option value="{{ $db_razdel->id }}">{{ $db_razdel->name }}</option>
+                    <option value="{{ $db_razdel->id }}" >{{ $db_razdel->name }}</option>
 
                 @endforeach
             </select>
+            {{ isset($razdel->opis)? $razdel->opis:''  }}
         </div>
 
     <div class="form-group">
