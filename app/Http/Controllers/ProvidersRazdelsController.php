@@ -15,28 +15,8 @@ use Illuminate\Support\Facades\DB;
 use Menu as LavMenu;
 use App\Menu;
 
-class PromRazdelController extends Controller
+class ProvidersRazdelsController extends Controller
 {
-
-
-    /*public function PromRazdelList()
-    {
-
-    }*/
-
-
-    /*public function AddPromRazdel()
-    {
-        $data = [
-            'title' => ' Добавить раздел',
-            'pagetitle' => ' Добавить раздел'
-        ];
-        return view ('pages.prom-razdel.add-prom-razdel',compact('data'));
-    }    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $razdels = Razdel::all();
@@ -57,13 +37,10 @@ class PromRazdelController extends Controller
                 'parent_id' => ''
             ]];
 
-        //  dd($table);
-        //$arrMenu = \App\Menu::all();
         $arrMenu = $table;
 
-   //     $menu = $this->buildMenu($arrMenu);
-        $top_page = "prom-razdel";
-        return view ('pages.prom-razdel.prom-razdel-list',compact(['data','razdels','top_page']));
+        $top_page = "providers";
+        return view ('pages.providers.razdels_pr',compact(['data','razdels','top_page']));
     }
 
     /**
@@ -77,8 +54,8 @@ class PromRazdelController extends Controller
             'title' => ' Добавить раздел',
             'pagetitle' => ' Добавить раздел'
         ];
-        $top_page = "prom-razdel";
-        return view ('pages.prom-razdel.add-prom-razdel',compact(['data','top_page']));
+        $top_page = "providers";
+        return view ('pages.providers.add-razdel_pr',compact(['data','top_page']));
 
     }
 
@@ -102,7 +79,7 @@ class PromRazdelController extends Controller
 */
         Razdel::create (request()->all());
 
-        redirect ('prom-razdel/');
+        redirect ('providers/razdels_pr');
     }
 
     /**
@@ -130,8 +107,8 @@ class PromRazdelController extends Controller
             'title' => ' Редактирование раздела',
             'pagetitle' => 'Редактирование раздела'
         ];
-        $top_page = "prom-razdel";
-        return view('pages.prom-razdel.edit', compact(['razdel','data','top_page']));
+        $top_page = "providers";
+        return view('pages.providers.edit-razdel', compact(['razdel','data','top_page']));
     }
 
     /**
@@ -145,7 +122,7 @@ class PromRazdelController extends Controller
     {
         $razdel->update(\request()->all());
 
-        return redirect("/prom-razdel");
+        return redirect("/providers/razdels_pr");
     }
 
     /**

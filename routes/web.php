@@ -14,6 +14,14 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Menu as LavMenu;
 
+Route::get('providers/', ['uses' => 'ProvidersController@index', 'as' => 'Providers']);
+
+Route::get('providers/razdels', ['uses' => 'ProvidersRazdelsController@index', 'as' => 'ProvidersRazdels']);
+Route::get('providers/create-razdel', ['uses' => 'ProvidersRazdelsController@create', 'as' => 'ProvidersRazdelCreate']);
+Route::post('providers/razdels', ['uses' => 'ProvidersRazdelsController@store', 'as' => 'ProvidersRazdelStore']);
+Route::get('providers/razdels/{razdel}/edit', ['uses' => 'ProvidersRazdelsController@edit', 'as' => 'ProvidersRazdelEdit']);
+Route::patch('providers/{razdel}', ['uses' => 'ProvidersRazdelsController@update', 'as' => 'ProvidersRazdelUpdate']);
+
 Route::get('prom-razdel/', ['uses' => 'PromRazdelController@index', 'as' => 'PromRazdelList']);
 Route::get('prom-razdel/create', ['uses' => 'PromRazdelController@create', 'as' => 'PromRazdelCreate']);
 Route::post('prom-razdel/', ['uses' => 'PromRazdelController@store', 'as' => 'PromRazdelStore']);
@@ -21,9 +29,9 @@ Route::get('/prom-razdel/{razdel}/edit', ['uses' => 'PromRazdelController@edit',
 Route::patch('/prom-razdel/{razdel}', ['uses' => 'PromRazdelController@update', 'as' => 'PromRazdelUpdate']);
 
 
-Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
-Route::get('/posts/create', ['uses' => 'HomeController@create']);
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
+Route::get('/posts/create', ['uses' => 'HomeController@create', 'as' => 'PostCreate']);
 
 //Route::get('/posts/{id}', ['uses' => 'HomeController@show']);
 Route::get('/posts/{post}', ['uses' => 'HomeController@show']);

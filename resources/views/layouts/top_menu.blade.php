@@ -1,6 +1,78 @@
 <?
 $action = Route::currentRouteName();
+
+    if(!isset($top_page))
+        $top_page='';
+
+
+//echo "Action = ".$action.", top_page=".$top_page;
+$top_menu_items = [
+    [
+        'action' => 'home',
+        'top_page' => '/',
+        'title' => 'Список постов',
+        'link' => '/'
+    ],
+    [
+        'action' => 'PromRazdelList',
+        'top_page' => 'prom-razdel',
+        'title' => 'Список разделов',
+        'link' => '/prom-razdel'
+    ],
+
+    [
+        'action' => 'Providers',
+        'top_page' => 'providers',
+        'title' => 'Поставщики',
+        'link' => '/providers'
+    ],
+    /*[
+        'action' => '',
+        'title' => '',
+        'link' => ''
+    ],*/
+];
+/*
+$second_menu_items = [
+    [
+        'action' => 'home',
+        'top_page' => '/',
+        'title' => 'Список постов',
+        'link' => '/'
+    ],
+    [
+        'action' => 'PromRazdelList',
+        'top_page' => 'prom-razdel',
+        'title' => 'Список разделов',
+        'link' => '/prom-razdel'
+    ],
+
+    [
+        'action' => 'PostCreate',
+        'top_page' => '/',
+        'title' => 'Добавить пост',
+        'link' => '/posts/create'
+    ],
+    [
+        'action' => 'PromRazdelCreate',
+        'top_page' => 'prom-razdel',
+        'title' => 'Добавить раздел',
+        'link' => '/prom-razdel/create'
+    ],
+    [
+        'action' => 'Providers',
+        'top_page' => 'providers',
+        'title' => 'Поставщики',
+        'link' => '/providers'
+    ],
+    /*[
+        'action' => '',
+        'title' => '',
+        'link' => ''
+    ],*/
+//]
 ?>
+
 
 <div class="bs-docs-section clearfix">
         <div class="row">
@@ -13,19 +85,16 @@ $action = Route::currentRouteName();
 
                         <div class="collapse navbar-collapse" id="navbarColor02">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item {{ ($action == 'home')?' active ':'' }}">
-                                    <{{ ($action == 'home')?'span ':'a' }} class="nav-link" href="/">Список постов</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/posts/create">Добавить пост</a>
-                                </li>
-                                <li class="nav-item {{ ($action == 'PromRazdelList')?' active ':'' }}" >
-                                    <{{ ($action == 'PromRazdelList')?'span ':'a ' }} class="nav-link" href="/prom-razdel">Список разделов</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/prom-razdel/create">Добавить раздел</a>
-                                </li>
-
+                                @foreach($top_menu_items as $item)
+                                    {!! ($top_page == $item['top_page'])?'<li class="nav-item active" >
+                                    <span class="nav-link">'.$item['title'].'</span>
+                                    </li>
+                                ':'
+                                <li class="nav-item" >
+                                    <a class="nav-link" href="'.$item['link'].'">'.$item['title'].'</a>
+                                    </li>'
+                                    !!}
+                                 @endforeach
                             </ul>
                         </div>
                     </nav>
@@ -33,5 +102,6 @@ $action = Route::currentRouteName();
             </div>
         </div>
     </div>
+
 
 

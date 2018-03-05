@@ -13,9 +13,7 @@
 <body>
 
 @include('layouts.top_menu')
-
-@include('pages.prom-razdel.submenu')
-{{-- @yield('submenu') --}
+@yield('submenu')
 
 {{--<div class="bs-component" >
     <ul class="nav nav-pills">
