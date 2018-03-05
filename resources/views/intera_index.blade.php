@@ -28,11 +28,11 @@
 --}}
 <div class="container">
 
-    <h2 class="text-center">
+    {{--<h2 class="text-center">
         {{ isset($data)? !empty($data['pagetitle'])?$data['pagetitle']:'pagetitle нет' : 'не передается data' }}
 
     </h2><hr/>
-
+--}}<br>
     <?
     /*    @for ($i = 0; $i < 5; $i++)
     <p>№ {{$i}}</p>

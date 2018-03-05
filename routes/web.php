@@ -17,10 +17,10 @@ use Menu as LavMenu;
 Route::get('providers/', ['uses' => 'ProvidersController@index', 'as' => 'Providers']);
 
 Route::get('providers/razdels', ['uses' => 'ProvidersRazdelsController@index', 'as' => 'ProvidersRazdels']);
-Route::get('providers/create-razdel', ['uses' => 'ProvidersRazdelsController@create', 'as' => 'ProvidersRazdelCreate']);
+Route::get('providers/razdels/create', ['uses' => 'ProvidersRazdelsController@create', 'as' => 'ProvidersRazdelCreate']);
 Route::post('providers/razdels', ['uses' => 'ProvidersRazdelsController@store', 'as' => 'ProvidersRazdelStore']);
 Route::get('providers/razdels/{razdel}/edit', ['uses' => 'ProvidersRazdelsController@edit', 'as' => 'ProvidersRazdelEdit']);
-Route::patch('providers/{razdel}', ['uses' => 'ProvidersRazdelsController@update', 'as' => 'ProvidersRazdelUpdate']);
+Route::patch('providers/razdels/{razdel}', ['uses' => 'ProvidersRazdelsController@update', 'as' => 'ProvidersRazdelUpdate']);
 
 Route::get('prom-razdel/', ['uses' => 'PromRazdelController@index', 'as' => 'PromRazdelList']);
 Route::get('prom-razdel/create', ['uses' => 'PromRazdelController@create', 'as' => 'PromRazdelCreate']);

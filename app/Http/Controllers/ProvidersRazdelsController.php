@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers_razdel;
 use Illuminate\Http\Request;
 use App\Razdel;
 
@@ -55,7 +56,7 @@ class ProvidersRazdelsController extends Controller
             'pagetitle' => ' Добавить раздел'
         ];
         $top_page = "providers";
-        return view ('pages.providers.add-razdel_pr',compact(['data','top_page']));
+        return view ('pages.providers.create-razdel_pr',compact(['data','top_page']));
 
     }
 
@@ -69,7 +70,7 @@ class ProvidersRazdelsController extends Controller
     public function store()
     {
         //Razdel::
-        //dd (request('name'));
+        //dd (request()->all());
         /*Razdel::create ([
             'name' => 'aa',
             'opis' => 'oo',
@@ -77,9 +78,18 @@ class ProvidersRazdelsController extends Controller
             'status' => '1'
         ]);
 */
-        Razdel::create (request()->all());
+        $data = [
+            'title' => ' Добавить раздел',
+            'pagetitle' => ' Добавить раздел'
+        ];
+        $top_page = "providers";
 
-        redirect ('providers/razdels_pr');
+
+        Providers_razdel::create (request()->all());
+
+//        redirect ('providers/razdels');
+        return view ('pages.providers.store-razdel_pr',compact(['data','top_page']));
+
     }
 
     /**
@@ -99,7 +109,7 @@ class ProvidersRazdelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Razdel $razdel)
+    public function edit(Providers_razdel $razdel)
     {
         //dd($razdel);
 
@@ -108,7 +118,7 @@ class ProvidersRazdelsController extends Controller
             'pagetitle' => 'Редактирование раздела'
         ];
         $top_page = "providers";
-        return view('pages.providers.edit-razdel', compact(['razdel','data','top_page']));
+        return view('pages.providers.edit-razdel_pr', compact(['razdel','data','top_page']));
     }
 
     /**
@@ -118,11 +128,14 @@ class ProvidersRazdelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Razdel $razdel)
+    public function update(Providers_razdel $razdel)
     {
         $razdel->update(\request()->all());
+        $top_page = "providers";
 
-        return redirect("/providers/razdels_pr");
+//        return redirect("/providers/razdels_pr");
+        return view ('pages.providers.store-razdel_pr',compact(['top_page']));
+
     }
 
     /**
