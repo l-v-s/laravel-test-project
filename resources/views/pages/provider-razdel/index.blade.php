@@ -1,7 +1,7 @@
 @extends('intera_index')
 
 @section('submenu')
-    @include('pages.providers.submenu')
+    @include('pages.provider-razdel.submenu')
 @endsection
 
 @section('content')
@@ -19,10 +19,10 @@ Menu::make('ProviderRazdelsMenu', function ($menu) {
             $li = "<span style='background-color:".$razdel->color.";' >".$razdel->name."</span>";
 
         if (!$razdel->parent_id){
-            $menu->add($li,['url' => 'providers/razdels/'.$razdel->id.'/edit', 'id' => $razdel->id]);
+            $menu->add($li,['url' => 'provider-razdel/'.$razdel->id.'/edit', 'id' => $razdel->id]);
         }
         elseif ($razdel){
-            $menu->add($li, ['url' => 'providers/razdels/'.$razdel->id.'/edit', 'parent' => $razdel->parent_id]);
+            $menu->add($li, ['url' => 'provider-razdel/'.$razdel->id.'/edit', 'parent' => $razdel->parent_id]);
         }
     }
 });
@@ -33,5 +33,5 @@ Menu::make('ProviderRazdelsMenu', function ($menu) {
 
 {!! !empty(Menu::get('ProviderRazdelsMenu'))?Menu::get('ProviderRazdelsMenu')->asol():'нет разделов' !!}
 
-<h6><a class="alert-link" href="/providers/razdels/create"><u>Добавить раздел</u></a></h6>
+<h6><a class="alert-link" href="/provider-razdel/create"><u>Добавить раздел</u></a></h6>
 @stop

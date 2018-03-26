@@ -28,6 +28,17 @@ Route::post('prom-razdel/', ['uses' => 'PromRazdelController@store', 'as' => 'Pr
 Route::get('/prom-razdel/{razdel}/edit', ['uses' => 'PromRazdelController@edit', 'as' => 'PromRazdelEdit']);
 Route::patch('/prom-razdel/{razdel}', ['uses' => 'PromRazdelController@update', 'as' => 'PromRazdelUpdate']);
 
+Route::get('provider-razdel/', ['uses' => 'ProviderRazdelController@index', 'as' => 'ProviderRazdelList']);
+Route::get('provider-razdel/create', ['uses' => 'ProviderRazdelController@create', 'as' => 'ProviderRazdelCreate']);
+Route::post('provider-razdel/', ['uses' => 'ProviderRazdelController@store', 'as' => 'ProviderRazdelStore']);
+Route::get('/provider-razdel/{razdel}/edit', ['uses' => 'ProviderRazdelController@edit', 'as' => 'ProviderRazdelEdit']);
+Route::patch('/provider-razdel/{razdel}', ['uses' => 'ProviderRazdelController@update', 'as' => 'ProviderRazdelUpdate']);
+
+Route::get('products/', ['uses' => 'ProductsController@index', 'as' => 'ProductsList']);
+Route::get('products/create', ['uses' => 'ProductsController@create', 'as' => 'ProductCreate']);
+Route::post('products/', ['uses' => 'ProductsController@store', 'as' => 'ProductStore']);
+Route::get('/products/{product}/edit', ['uses' => 'ProductsController@edit', 'as' => 'ProductEdit']);
+Route::patch('/products/{product}', ['uses' => 'ProductsController@update', 'as' => 'ProductUpdate']);
 
 
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);

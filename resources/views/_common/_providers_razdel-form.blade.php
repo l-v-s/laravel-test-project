@@ -1,4 +1,4 @@
-<form action="/providers/razdels{{ isset($razdel)? '/'.$razdel->id:'' }}" method="post">
+<form action="/provider-razdel{{ isset($razdel)? '/'.$razdel->id:'' }}" method="post">
         {{csrf_field()}}
 
         {{ isset($razdel)? method_field('patch'):'' }}
@@ -27,15 +27,25 @@
             <td class="form-group" colspan="3">
                 <label for="parent_id">К&nbsp;какому&nbsp;разделу&nbsp;относится:</label>
 
-                <select class="custom-select" name="parent_id" id="parent_razdel_id">
-                    <option value="0">Основной раздел</option>
+                <?php
 
-                    <?php
 
-                    $razdels = DB::table('providers_razdels')->get()->where('parent_id','0');
-                    ?>
+                $razdels = DB::table('providers_razdels')->where('parent_id','0')->where('status','1')->orderBy('position','desc')->orderBy('id','asc')->get();
+                //$razdels = DB::table('providers_razdels')->where('status','1')->orderBy('position','desc')->orderBy('id','asc')->get();
+
+//                dd ($razdels);
+                ?>
+                <select class="custom-select" name="parent_id" id="parent_id">
+                    <option value="0" >Основной раздел</option>
                     @foreach($razdels as $db_razdel)
-                        <option value="{{ $db_razdel->id }}" >{{ $db_razdel->name }}</option>
+                        <option value="{{ $db_razdel->id }}"
+
+                            @if (isset($razdel))
+                                {!!   ($db_razdel->id == $razdel->parent_id)?' selected':'' !!}
+
+                            @endif
+                            >{{ $db_razdel->name }}
+                        </option>
 
                     @endforeach
                 </select>
@@ -47,7 +57,7 @@
                 <label for="status">Статус: </label>
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <input class="form-check-inline" {{ (empty($razdel->status) || $razdel->status==1)?'checked':'' }} ="status" id="status" value="1" type="radio">
+                    <input class="form-check-inline" name="status" {{ (empty($razdel->status) || $razdel->status==1)?'checked':'' }} id="status" value="1" type="radio">
                     Показывать
 
                 <input class="form-check-inline" name="status" {{ ((isset($razdel->status) && $razdel->status == 0))?'checked':'' }} id="status" value="0" type="radio">

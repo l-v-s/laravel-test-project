@@ -13,12 +13,14 @@ $top_menu_items = [
         'title' => 'Список постов',
         'link' => '/'
     ],
+
     [
-        'action' => 'PromRazdelList',
-        'top_page' => 'prom-razdel',
-        'title' => 'Список разделов',
-        'link' => '/prom-razdel'
+        'action' => 'Products',
+        'top_page' => 'products',
+        'title' => 'Товары',
+        'link' => '/products'
     ],
+
 
     [
         'action' => 'Providers',
@@ -26,11 +28,25 @@ $top_menu_items = [
         'title' => 'Поставщики',
         'link' => '/providers'
     ],
+
+    [
+        'action' => 'PromRazdelList',
+        'top_page' => 'prom-razdel',
+        'title' => 'Разделы станков',
+        'link' => '/prom-razdel'
+    ],
+
+    [
+        'action' => 'ProvidersRazdelList',
+        'top_page' => 'provider-razdel',
+        'title' => 'Разделы поставщиков',
+        'link' => '/provider-razdel'
+    ]
     /*[
-        'action' => '',
-        'title' => '',
-        'link' => ''
-    ],*/
+            'action' => '',
+            'title' => '',
+            'link' => ''
+        ],*/
 ];
 /*
 $second_menu_items = [

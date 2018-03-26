@@ -12,10 +12,10 @@ $submenu_items = [
         'link' => '/'
     ],*/
     [
-        'action' => 'PromRazdelList',
-        'top_page' => 'prom-razdel',
-        'title' => 'Список разделов станков',
-        'link' => '/prom-razdel'
+        'action' => 'ProviderRazdelList',
+        'top_page' => 'provider-razdel',
+        'title' => 'Список разделов поставщиков',
+        'link' => '/provider-razdel'
     ],
 
     /*[
@@ -25,10 +25,10 @@ $submenu_items = [
         'link' => '/posts/create'
     ],*/
     [
-        'action' => 'PromRazdelCreate',
-        'top_page' => 'prom-razdel',
-        'title' => 'Добавить раздел станков',
-        'link' => '/prom-razdel/create'
+        'action' => 'ProviderRazdelCreate',
+        'top_page' => 'provider-razdel',
+        'title' => 'Добавить раздел поставщиков',
+        'link' => '/provider-razdel/create'
     ],
     /*[
         'action' => 'Providers',
